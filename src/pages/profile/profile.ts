@@ -36,7 +36,6 @@ export class ProfilePage {
         this.db.object(`profile/${auth.uid}`).set(this.profile)
         . then(()=>{
 
-
           let profileData : any;
           this.fire.authState.take(1).subscribe(data => {
             if (data && data.email && data.uid) {
@@ -48,14 +47,11 @@ export class ProfilePage {
                 globalUser.username = profileData.username;
                 globalUser.workerID = profileData.workerID;
       
-                this.navCtrl.push(ProfilePage);
+                this.navCtrl.setRoot('TabsPage');
               });
             }
           });
 
-        this.navCtrl.pop();
-
-        this.navCtrl.setRoot('TabsPage')
       });
         
     });
