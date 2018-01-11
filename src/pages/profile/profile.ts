@@ -37,6 +37,7 @@ export class ProfilePage {
         . then(()=>{
                 globalUser.username = this.profile.username;
                 globalUser.workerID = this.profile.workerID;
+                globalUser.phone = this.profile.phone;                
       
                 this.navCtrl.setRoot('TabsPage');
               });        

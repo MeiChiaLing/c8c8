@@ -1,63 +1,108 @@
 <ion-header>
   <ion-navbar no-border-bottom>
     <ion-toolbar no-border-top>
-      <ion-searchbar color="primary"
-                     placeholder="Search">
-      </ion-searchbar>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="showScheduleGenPage()">
+          <ion-icon name="ionitron"></ion-icon>
+        </button>
+      </ion-buttons>
+
+      <ion-segment [(ngModel)]="scheData">
+          <ion-segment-button value="self">
+            自己班表
+          </ion-segment-button>
+          <ion-segment-button value="all">
+            全部班表
+          </ion-segment-button>
+      </ion-segment>
+
     </ion-toolbar>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="showScheduleGenPage()">
-        <ion-icon name="ionitron"></ion-icon>
-      </button>
-    </ion-buttons>
+    
   </ion-navbar>
 
 
 </ion-header>
 
 <ion-content>
+  <div [ngSwitch]="scheData">
+    <div *ngSwitchCase="'all'">
+      <ion-list >
+        <ion-item-group  *ngFor = "let group of sche">
+          <ion-item-divider sticky>
+            <ion-label>
+            {{group.date}}
+            </ion-label>
+          </ion-item-divider>
 
-  <ion-list >
+          <ion-item>
+            <button ion-item >
+              <h3>早班</h3>
+              <p>
+                07:00am &mdash;
+                03:00pm:
+              {{group.firstShift1}} &nbsp; {{group.firstShift2}}
+              </p>
+            </button>
+            <button ion-item >
+              <h3>晚班</h3>
+              <p>
+                03:00pm &mdash;
+                11:00pm:
+                {{group.secondShift1}} &nbsp;  {{group.secondShift2}}
+              </p>
+            </button>
+            <button ion-item >
+              <h3>夜班</h3>
+              <p>
+                11:00pm &mdash;
+                07:00am:
+                {{group.thirdShift1}}  &nbsp; {{group.thirdShift2}}
+              </p>
+            </button>
+          </ion-item>
+        </ion-item-group>
+      </ion-list>
+     </div>
 
-    <ion-item-group  *ngFor = "let group of scheItemRef$ |async">
+     <div *ngSwitchCase="'self'">
+        <ion-list >
+          <ion-item-group  *ngFor = "let group of sche_self">
+            <ion-item-divider sticky>
+              <ion-label>
+              {{group.date}}
+              </ion-label>
+            </ion-item-divider>
+  
+            <ion-item>
+              <button ion-item >
+                <h3>早班</h3>
+                <p>
+                  07:00am &mdash;
+                  03:00pm:
+                {{group.firstShift1}} &nbsp; {{group.firstShift2}}
+                </p>
+              </button>
+              <button ion-item >
+                <h3>晚班</h3>
+                <p>
+                  03:00pm &mdash;
+                  11:00pm:
+                  {{group.secondShift1}} &nbsp;  {{group.secondShift2}}
+                </p>
+              </button>
+              <button ion-item >
+                <h3>夜班</h3>
+                <p>
+                  11:00pm &mdash;
+                  07:00am:
+                  {{group.thirdShift1}}  &nbsp; {{group.thirdShift2}}
+                </p>
+              </button>
+            </ion-item>
+          </ion-item-group>
+        </ion-list>
+       </div>
 
-      <ion-item-divider sticky>
-        <ion-label>
-        {{group.date}}
-        </ion-label>
-      </ion-item-divider>
-
-      <ion-item>
-
-        <button ion-item >
-          <h3>早班</h3>
-          <p>
-            07:00am &mdash;
-            03:00pm:
-          {{group.firstShift1}} &nbsp; {{group.firstShift2}}
-          </p>
-        </button>
-        <button ion-item >
-          <h3>晚班</h3>
-          <p>
-            03:00pm &mdash;
-            11:00pm:
-            {{group.secondShift1}} &nbsp;  {{group.secondShift2}}
-          </p>
-        </button>
-        <button ion-item >
-          <h3>夜班</h3>
-          <p>
-            11:00pm &mdash;
-            07:00am:
-            {{group.thirdShift1}}  &nbsp; {{group.thirdShift2}}
-          </p>
-        </button>
-
-      </ion-item>
-
-    </ion-item-group>
-
-  </ion-list>
+  </div>
 
 </ion-content>

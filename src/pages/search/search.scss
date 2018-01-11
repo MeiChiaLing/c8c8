@@ -1,3 +1,58 @@
 page-search {
-
+    .innerMessage{
+        display: inline-block;
+        padding: 5px 10px;
+        background: #dee9ff;
+        margin: 5px;
+        border-radius: 0.5em;
+        word-wrap: break-word;        
+    }
+  
+    .innerMessage.messageRight{
+      background: #efffde;
+    }
+    .username{
+      font-weight: bold;
+      font-size: 80%;
+  
+    }
+    .message{
+      font-size: 120%;
+    }
+    .element button{
+      border-radius: 0;
+      margin: 0;
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height:100%;
+    }
+    .element{
+      position:relative;
+      min-width: 50px;
+    }
+    div#footer div.element:first-child{
+      flex-grow: 1;
+    }
+    div#footer {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+    }
+    ion-toolbar{
+      margin: 0;
+      padding:0;
+    }
+    .messageLeft{
+      float: left;
+    }
+    .messageRight{
+      float: right;
+    }
+    .message:after{
+      content:'';
+      display: block;
+      clear: both;
+    }
 }

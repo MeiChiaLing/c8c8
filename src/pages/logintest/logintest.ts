@@ -127,6 +127,7 @@ export class LogintestPage {
             //set global user
             globalUser.username = profileData.username;
             globalUser.workerID = profileData.workerID;
+            globalUser.phone = profileData.phone;
   
             this.navCtrl.setRoot(TabsPage);
           }

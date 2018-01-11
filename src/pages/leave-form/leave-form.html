@@ -1,66 +1,60 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>
-            請假
-        </ion-title>
-    </ion-navbar>
-</ion-header>
-<ion-content>
-    <ion-list>
-        <ion-list-header>員工請假申請</ion-list-header>
-        <ion-item>
-            員工姓名：
-            @workername
-        </ion-item>
-        <ion-item>
-            員工ID：
-            @workerid
-        </ion-item>
-        <ion-item>
-            聯絡電話：
-            @workerphone
-        </ion-item>
-    </ion-list>
-
-    <ion-list>
-        <ion-item>
-            <ion-label>請假時段：</ion-label>
-            <ion-datetime displayformat="MMM DD,YYYY" pickerformat="MMM DD YYYY"></ion-datetime>
-        </ion-item>
-
-
-
-        <ion-item>
-            請假類別：
-            <select>
-                <option>公假</option>
-                <option selected="">事假</option>
-                <option>產假</option>
-                <option>婚假</option>
-                <option>喪假</option>
-                <option>生理假</option>
-                <option>出差</option>
-                <option>特休</option>
-            </select>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>請假事由：</ion-label>
-            <ion-textarea></ion-textarea>
-        </ion-item>
-
-
-    </ion-list>
-    <ion-list radio-group>
-        <ion-item>
-            <ion-label>有證明文件</ion-label>
-            <ion-radio value="yes"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-            <ion-label>無證明文件</ion-label>
-            <ion-radio value="no"></ion-radio>
-        </ion-item>
-    </ion-list>
-
-</ion-content>
+        <ion-navbar>
+            <ion-title>
+                請假
+            </ion-title>
+        </ion-navbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-list-header>員工請假申請</ion-list-header>
+            <ion-item>
+              <ion-label >員工姓名：</ion-label>
+              <ion-input type="text" [(ngModel)]="leaveItem.username"></ion-input>
+    
+            </ion-item>
+            <ion-item>
+              <ion-label >員工ID：</ion-label>
+              <ion-input type="text" [(ngModel)]="leaveItem.workerID"></ion-input>
+    
+            </ion-item>
+            <ion-item>
+              <ion-label >員工手機：</ion-label>
+              <ion-input type="text" [(ngModel)]="leaveItem.phone"></ion-input>
+    
+            </ion-item>
+        </ion-list>
+    
+        <ion-list>
+            <ion-item>
+                <ion-label>請假時段：</ion-label>
+                <ion-datetime displayformat="MMM DD,YYYY" pickerformat="MMM DD YYYY" [(ngModel)]="leaveItem.date"></ion-datetime>
+            </ion-item>
+    
+    
+    
+            <ion-item>
+                請假類別：
+                <select [(ngModel)]="leaveItem.category">
+                    <option>公假</option>
+                    <option selected="">事假</option>
+                    <option>產假</option>
+                    <option>婚假</option>
+                    <option>喪假</option>
+                    <option>生理假</option>
+                    <option>出差</option>
+                    <option>特休</option>
+                </select>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label>請假事由：</ion-label>
+                <ion-textarea [(ngModel)]="leaveItem.about"></ion-textarea>
+            </ion-item>
+    
+    
+        </ion-list>
+    
+          <button ion-button block (click)="addLeaveItem(leaveItem)">送出</button>
+    </ion-content>
+    

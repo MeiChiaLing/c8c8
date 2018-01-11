@@ -1,22 +1,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Search</ion-title>
+    <ion-title>Chat</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
-  <ion-searchbar (ionInput)="getItems($event)" placeholder="Find your pal"></ion-searchbar>
-  <ion-list>
-    <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
-      <ion-avatar item-start>
-        <img [src]="item.profilePic" />
-      </ion-avatar>
-      <h2>{{item.name}}</h2>
-      <p>{{item.about}}</p>
-      <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-    </button>
-  </ion-list>
+<ion-content padding>
+  <div id="chatMessages">
+    <div class="message" *ngFor="let message of messages">
+      <div [class]="message.username == username ?
+      'innerMessage messageRight' : 'innerMessage messageLeft'">
+        <div class="username">{{message.username}}</div>
+        <div class="message">{{message.message}}</div>
+      </div>
+    </div>
+  </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div id="footer">
+      <div class="element">
+        <ion-input type="text" [(ngModel)]="message"></ion-input>
+      </div>
+      <div class="element"><button ion-button icon-only (click)="sendMessage()"><ion-icon name="send"></ion-icon></button></div>
+      </div>
+  </ion-toolbar>
+</ion-footer>

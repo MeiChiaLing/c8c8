@@ -1,4 +1,5 @@
 export interface Leave {
+  checkId: string;
   username: string;
   workerID: string;
   phone: string;
@@ -6,4 +7,3 @@ export interface Leave {
   category: string;
   about:string;
 }
-

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { Leave } from './../../models/leaveform';
+import { AngularFireDatabase , FirebaseListObservable} from 'angularfire2/database-deprecated';
+
+import { globalUser } from '../../app/global';
 /**
  * Generated class for the LeaveFormPage page.
  *
@@ -14,12 +18,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'leave-form.html',
 })
 export class LeaveFormPage {
+  leaveItem = {} as Leave;
+  leaveItemRef$: FirebaseListObservable<Leave[]>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private db:AngularFireDatabase,
+    public navCtrl: NavController, public navParams: NavParams) {
+      this.leaveItem.username = globalUser.username;
+      this.leaveItem.workerID = globalUser.workerID;
+      this.leaveItem.phone = globalUser.phone;
+      this.leaveItemRef$ = this.db.list('leave-list');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LeaveFormPage');
+  addLeaveItem(leaveItem: Leave){
+    this.leaveItemRef$.push(this.leaveItem);
+    this.leaveItem = {} as Leave;
+
+    this.navCtrl.pop();
   }
 
 }
