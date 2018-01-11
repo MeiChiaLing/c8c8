@@ -27,7 +27,9 @@ export class SearchPage {
   sendMessage() {
     this.db.list('/chat').push({
       username: globalUser.username,
-      message: this.message
+      message: this.message,
+      image : globalUser.image,
+      time : new Date().toLocaleString()
     }).then(() => {
       //message is sent
     });

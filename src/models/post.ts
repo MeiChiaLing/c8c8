@@ -4,6 +4,8 @@ export interface Post {
   username: string;
   time: string;
   content: string;
+  image : string;
+  workerID : string;
 }
 
 //add ? means the key is optional

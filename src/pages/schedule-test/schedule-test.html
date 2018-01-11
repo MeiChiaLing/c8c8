@@ -1,6 +1,5 @@
 <ion-header>
-  <ion-navbar no-border-bottom>
-    <ion-toolbar no-border-top>
+  <ion-navbar>
       <ion-buttons end>
         <button ion-button icon-only (click)="showScheduleGenPage()">
           <ion-icon name="ionitron"></ion-icon>
@@ -15,15 +14,13 @@
             全部班表
           </ion-segment-button>
       </ion-segment>
-
-    </ion-toolbar>
     
   </ion-navbar>
 
 
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <div [ngSwitch]="scheData">
     <div *ngSwitchCase="'all'">
       <ion-list >

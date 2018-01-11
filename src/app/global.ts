@@ -11,5 +11,6 @@ export var worker = {
 export var globalUser = {
     username : "",
     workerID : "",
-    phone : ""
+    phone : "",
+    image : ""
 };

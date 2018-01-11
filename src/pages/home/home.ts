@@ -25,15 +25,10 @@ import { globalUser } from '../../app/global';
 })
 export class HomePage {
 
-  //profileData: FirebaseObjectObservable<Profile>
-//  profileData ={} as Profile;
   postItemRef$: FirebaseListObservable<Post[]>
   postItem : any;
 
   email: string;
-
-//  actionSheet: ActionSheet;
-//  posts: any[] = [];
 
   constructor(
     private fire: AngularFireAuth,
@@ -41,9 +36,7 @@ export class HomePage {
     private toast: ToastController,
     private actionSheetCtrl: ActionSheetController,
     public navCtrl: NavController,
-//    public confData: ConferenceData,
     public config: Config,
-    //public inAppBrowser: InAppBrowser
   ) {
     this.email = fire.auth.currentUser.email;
     this.postItemRef$ = this.db.list('post-list');
@@ -59,7 +52,7 @@ export class HomePage {
   showPostForm() {
     this.navCtrl.push(PostFormPage);
   }
-//`` use for template
+
   selectPostItem(postItem: Post){
     /*
       1. edit()
@@ -122,6 +115,7 @@ export class HomePage {
     this.db.list('post-list').subscribe(data =>{
       this.postItem = data;
       this.postItem.reverse();
+      console.log(this.postItem);
     });
   }
 

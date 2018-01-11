@@ -37,7 +37,8 @@ export class ProfilePage {
         . then(()=>{
                 globalUser.username = this.profile.username;
                 globalUser.workerID = this.profile.workerID;
-                globalUser.phone = this.profile.phone;                
+                globalUser.phone = this.profile.phone;  
+                globalUser.image = "assets/img/speakers/Admin.jpg";              
       
                 this.navCtrl.setRoot('TabsPage');
               });        

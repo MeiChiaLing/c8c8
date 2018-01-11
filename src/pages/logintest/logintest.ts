@@ -39,7 +39,7 @@ export class LogintestPage {
 
   constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,
     private alertCtrl: AlertController) {
-      this.user.email = "worker1@c8c8.com";
+      this.user.email = "a0970713198@gmail.com";
       this.user.password = "111111";
   }
 
@@ -128,6 +128,7 @@ export class LogintestPage {
             globalUser.username = profileData.username;
             globalUser.workerID = profileData.workerID;
             globalUser.phone = profileData.phone;
+            globalUser.image = profileData.image;
   
             this.navCtrl.setRoot(TabsPage);
           }

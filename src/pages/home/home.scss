@@ -27,4 +27,34 @@ page-home {
     padding-left: 0;
     padding-right: 0;
   }
+
+  .boss{
+    background-color: pink;
+    ion-card-header{
+      button{
+        background-color: pink;
+      }
+    }
+    ion-card-content{
+      ion-item{
+        background-color: pink;
+      }
+    }
+  }
+
+  .worker{
+    background-color: #dee9ff;
+    ion-card-header{
+      button{
+        background-color: #dee9ff;    
+      }
+    }
+    ion-card-content{
+      ion-item{
+        background-color: #dee9ff;    
+      }
+    }
+  }
+
+
 }
