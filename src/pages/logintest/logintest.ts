@@ -123,7 +123,7 @@ export class LogintestPage {
         personRef.on('value', personSnapshot => {
           profileData = personSnapshot.val();
           if (profileData.username != "") {
-            //console.log(profileData.username);
+            console.log(profileData);
             //set global user
             globalUser.username = profileData.username;
             globalUser.workerID = profileData.workerID;

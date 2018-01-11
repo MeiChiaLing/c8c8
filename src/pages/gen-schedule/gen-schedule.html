@@ -14,10 +14,29 @@
 
 
 <ion-content padding>
-  <button ion-button  icon-only (click)="createSchedule()">
-      <ion-icon name="add"></ion-icon>
-  </button>
+  <ion-item style="width:60%">
+    <ion-label>Month</ion-label>
+    <ion-select [(ngModel)]="createMonth" >
+      <ion-option [value]=1>1月</ion-option>
+      <ion-option [value]=2>2月</ion-option>
+      <ion-option [value]=3>3月</ion-option>
+      <ion-option [value]=4>4月</ion-option>
+      <ion-option [value]=5>5月</ion-option>
+      <ion-option [value]=6>6月</ion-option>
+      <ion-option [value]=7>7月</ion-option>
+      <ion-option [value]=8>8月</ion-option>
+      <ion-option [value]=9>9月</ion-option>
+      <ion-option [value]=10>10月</ion-option>
+      <ion-option [value]=11>11月</ion-option>
+      <ion-option [value]=12>12月</ion-option>
+    </ion-select>
 
+    <button ion-button item-end icon-only (click)="createSchedule()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+
+</ion-item>
+  
   <button ion-button  icon-only (click)="deleteSchedule()">
       <ion-icon name="trash"></ion-icon>
   </button>

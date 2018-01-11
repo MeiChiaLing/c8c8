@@ -25,13 +25,18 @@ export class GenSchedulePage {
   year: string = "2018";
   month: string = "1";
   scheItemRef$: FirebaseListObservable<Schedule[]>
-  workerData : any;
+  workerData = [];
+  createMonth = 1;
+  Month_day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   constructor(private db: AngularFireDatabase,
     public navCtrl: NavController, public navParams: NavParams) {
     this.scheItemRef$ = this.db.list('sche-list');
     this.db.list('profile').subscribe(data => {
-      this.workerData = data;
+      for(let i = 0; i < data.length; i++){
+        if (data[i].workerID.charAt(0)=='A')
+          this.workerData.push(data[i]);
+      }
       console.log(this.workerData);
     });
   }
@@ -47,9 +52,10 @@ export class GenSchedulePage {
   }
 
   private createSchedule() {
+    this.month = this.createMonth.toString();
     let count = 0;
-    for (let day = 1; day <= this.maxDay; day++) {
-  //    this.scheItem.$key = day+"";
+    for (let day = 1; day <= this.Month_day[this.createMonth-1]; day++) {
+ 
       this.scheItem.date = this.year + '/' + this.month + '/' + day;
       for (let no = 0; no < 3; no++) {
 
