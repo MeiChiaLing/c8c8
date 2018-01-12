@@ -22,15 +22,20 @@ import { globalUser } from '../../app/global';
   templateUrl: 'switch.html',
 })
 export class SwitchPage {
+  profileItemRef$: any;  
 
   profile = {} as Profile; //profile as a new object of Profile
   switch_time = {
     date: "",
-    time : "1"
+    time : "1",
+    sche_uid: "",
+    sche_time : ""
   };
   want_time = {
-    date: "",
-    time: "1"
+    date : "",
+    time : "1",
+    sche_uid : "",
+    sche_time : ""
   };
   sche : any;
 
@@ -42,40 +47,73 @@ export class SwitchPage {
     this.db.list('sche-list').subscribe(data => {
       this.sche = data;
       console.log(this.sche);
-      /*
-      for(let i = 0; i < this.sche.length; i++){
-        if(this.switch_time.date == this.sche[i].date){
-            if(this.switch_time.time == 1){
-              if(globalUser.username == this.sche[i].firstShift1 || globalUser.username == this.sche[i].firstShift2){
-                this.createSwitch();
-                return;
-              }
-            }else if(this.switch_time.time == 2){
-              if(globalUser.username == this.sche[i].secondShift1 || globalUser.username == this.sche[i].secondShift2){
-                this.createSwitch();
-                return;
-              }
-            }else if(this.switch_time.time == 3){
-              if(globalUser.username == this.sche[i].thirdShift1 || globalUser.username == this.sche[i].thirdShift2){
-                this.createSwitch();
-                return;
-              }
-            }
-            alert("時段選擇錯誤!!");
-            break;
-        } 
-      }
-      */
-      if(this.switch_time.date != "" && this.want_time.date != ""){
-        this.createSwitch();
-      }else
-        alert("未選擇時段!!");
 
+      if(this.switch_time.date != "" && this.want_time.date != ""){
+      
+        for(let i = 0; i < this.sche.length; i++){
+          if(this.switch_time.date == this.sche[i].date){
+              if(this.switch_time.time == "1"){
+                if(globalUser.username == this.sche[i].firstShift1){
+                  this.switch_time.sche_time = "firstShift1";
+                  this.createSwitch(this.sche[i]);
+                  return;
+                }
+                if(globalUser.username == this.sche[i].firstShift2){
+                  this.switch_time.sche_time = "firstShift2";                  
+                  this.createSwitch(this.sche[i]);
+                  return;
+                }
+              }else if(this.switch_time.time == "2"){
+                if(globalUser.username == this.sche[i].secondShift1){
+                  this.switch_time.sche_time = "secondShift1";
+                  this.createSwitch(this.sche[i]);
+                  return;
+                }
+                if(globalUser.username == this.sche[i].secondShift2){
+                  this.switch_time.sche_time = "secondShift2";                  
+                  this.createSwitch(this.sche[i]);
+                  return;
+                }
+              }else if(this.switch_time.time == "3"){
+                if(globalUser.username == this.sche[i].thirdShift1){
+                  this.switch_time.sche_time = "secondShift1";
+                  this.createSwitch(this.sche[i]);
+                  return;
+                }
+                if(globalUser.username == this.sche[i].thirdShift2){
+                  this.switch_time.sche_time = "secondShift2";                  
+                  this.createSwitch(this.sche[i]);
+                  return;
+                }
+              }
+              alert("時段選擇錯誤!!");
+              break;
+          } 
+        }
+        /*
+        if(this.switch_time.date != "" && this.want_time.date != ""){
+          this.createSwitch();
+        }else
+          alert("未選擇時段!!");
+        */
+      }
+      else
+        alert("未選擇時段!!");
     });
+    
     
   }
 
-  private createSwitch(){
+  private createSwitch(sche){
+
+    this.switch_time.sche_uid = sche.$key;
+
+    for(let i = 0; i < this.sche.length; i++){
+        if(this.want_time.date == this.sche[i].date){
+            this.want_time.sche_uid = this.sche[i].$key;
+        } 
+    }
+
     if(this.switch_time.time == "1")
       this.switch_time.time = "早班";
     else if(this.switch_time.time == "2")
@@ -90,6 +128,8 @@ export class SwitchPage {
     else
       this.want_time.time = "晚班";
     
+    this.profileItemRef$ = this.db.object(`chat/${this.switch_time.date}`);      
+
       this.db.list('/chat').push({
         username: globalUser.username,
         message: "求換班!!!!",

@@ -25,12 +25,13 @@
     <ion-label floating>Password</ion-label>
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
-
+  
+  <ion-item>
+    <button ion-button round style="border-radius:50%; height:50px; width:50px;" (click)="signIn(user)">Sign In</button>
+  </ion-item>
 </ion-list>
 
-<div padding>
-  <button block ion-button (click)="signIn(user)">Sign In</button>
-</div>
+
 <div padding>
   <ion-item no-lines>
     <ion-label class="ion-label" style="color:#777777" (click)="forget()">Forget password?</ion-label>

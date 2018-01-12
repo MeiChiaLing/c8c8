@@ -80,7 +80,7 @@ export class SearchPage {
     this.profileItemRef$.update(message);
     alert("換班成功~~");
 
-    //剩下改班表那邊 感恩~~~~
+    //剩下改班表那邊 感恩~~~~ 另一個人那天有沒有班防呆
   }
 
 }

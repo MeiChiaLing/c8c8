@@ -1,3 +1,17 @@
 page-logintest {
-
+    ion-item{
+        width: 100%;
+        display: flex;
+        flex-direction: column;    /* align flex items vertically */
+        justify-content: center;   /* center items vertically, in this case */
+        align-items: center;       /* center single-line items horizontally, in this case */
+        align-content: center;     /* center multi-line items horizontally, in this case */
+      }
+    
+      .ion-label {
+        text-align: center;
+      }
+      .item-inner, ion-item {
+        padding: 5px;
+    }
 }
