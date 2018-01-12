@@ -20,11 +20,16 @@ export class SearchPage {
 
   constructor(public db: AngularFireDatabase,
     public navCtrl: NavController, public navParams: NavParams) {
-    this.subscription = this.db.list('/chat').subscribe(data => {
-      this.messages=data;
-    });
   }
 
+  ionViewWillEnter(){
+    this.subscription = this.db.list('/chat').subscribe(data => {
+      this.messages=data;
+      console.log(this.messages);
+      //this.content.scrollToBottom(0);
+    });
+    
+  }
 
   sendMessage() {
     if(this.message != ''){
