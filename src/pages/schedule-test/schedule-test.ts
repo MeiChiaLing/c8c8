@@ -27,6 +27,8 @@ export class ScheduleTestPage {
   private sche_search: any;
   private searchkeyword: any;
   scheData: string = "self";
+  userID = globalUser.workerID;
+  
 
   constructor(private db: AngularFireDatabase,
     public navCtrl: NavController, public navParams: NavParams) {

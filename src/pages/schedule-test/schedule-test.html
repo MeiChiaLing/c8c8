@@ -1,7 +1,8 @@
 <ion-header>
   <ion-navbar>
       <ion-buttons end>
-        <button ion-button icon-only (click)="showScheduleGenPage()">
+        <button ion-button icon-only [hidden]="userID.charAt(0) == 'B' ?
+        false : true" (click)="showScheduleGenPage()">
           <ion-icon name="ionitron"></ion-icon>
         </button>
       </ion-buttons>

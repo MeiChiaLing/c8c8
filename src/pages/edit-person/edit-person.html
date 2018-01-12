@@ -1,0 +1,29 @@
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title>個人資訊更改</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="profileItem.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>About</ion-label>
+      <ion-input type="text" [(ngModel)]="profileItem.about"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Phone</ion-label>
+      <ion-input type="text" [(ngModel)]="profileItem.phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>E-Mail</ion-label>
+      <ion-input type="text" [(ngModel)]="profileItem.email"></ion-input>
+    </ion-item>
+    
+  
+    <button ion-button block (click)="editPersonInfo(profileItem)">確認修改</button>
+  </ion-content>

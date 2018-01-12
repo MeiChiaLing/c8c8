@@ -29,6 +29,7 @@ export class HomePage {
   postItem : any;
 
   email: string;
+  userID = globalUser.workerID;
 
   constructor(
     private fire: AngularFireAuth,

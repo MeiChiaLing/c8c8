@@ -1,4 +1,5 @@
 export interface Leave {
+  $key? : string;
   checkId: string;
   username: string;
   workerID: string;

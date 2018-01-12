@@ -2,8 +2,8 @@
   <ion-navbar>
     <ion-title>Account</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
-          <ion-icon name="more"></ion-icon>
+      <button ion-button icon-only (click)="logout()">
+          <ion-icon name="paw"></ion-icon>Logout
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -11,17 +11,17 @@
 
 <ion-content class="outer-content">
   <div padding-top text-center >
-    <img src={{profileData.image}} alt="avatar">
-    <h1>{{profileData.username}}</h1>
-    <h2>{{profileData.about}}</h2>
-    <h2>{{profileData.workerID}}</h2>  
+    <img src={{profileItem.image}} alt="avatar">
+    <h1>Name:&nbsp;&nbsp;&nbsp;{{profileItem.username}}</h1>
+    <h2>About:&nbsp;&nbsp;&nbsp;{{profileItem.about}}</h2>
+    <h2>WorkerID:&nbsp;&nbsp;&nbsp;{{profileItem.workerID}}</h2>  
+    <h2>Phone:&nbsp;&nbsp;&nbsp;{{profileItem.phone}}</h2>  
+    <h2>E-Mail:&nbsp;&nbsp;&nbsp;{{profileItem.email}}</h2> 
 
     <ion-list inset>
-      <button ion-item (click)="changePhone()">{{profileData.phone}}</button>
-      <button ion-item (click)="changeEmail()">{{profileData.email}}</button>
-      <button ion-item (click)="changeAbout()">Change About</button>
-      <button ion-item (click)="changePassword()">Change Password</button>
-      <button ion-item (click)="logout()">Logout</button>
+      <button block ion-button (click)="changePersonDetail(profileItem)">Change Person Information</button>
+      
+      
     </ion-list>
   </div>
 </ion-content>

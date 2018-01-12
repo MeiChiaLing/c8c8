@@ -32,6 +32,7 @@
   </ion-card>
   
   <ion-fab bottom right #fab>
-    <button ion-fab (click)="showPostForm()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab [hidden]="userID.charAt(0) == 'B' ?
+    false : true" (click)="showPostForm()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

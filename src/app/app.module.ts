@@ -21,6 +21,7 @@ import { EditPostItemPage } from '../pages/edit-post-item/edit-post-item';
 import { ScheduleTestPage } from '../pages/schedule-test/schedule-test';
 import { GenSchedulePage } from '../pages/gen-schedule/gen-schedule';
 import { ForgetPage } from '../pages/logintest/forget/forget';
+import { EditPersonPage } from '../pages/edit-person/edit-person';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -46,7 +47,8 @@ import { firebaseAuth } from "./app.firebase.config";
     EditPostItemPage,
     ScheduleTestPage,
     GenSchedulePage,
-    ForgetPage
+    ForgetPage,
+    EditPersonPage
   ],
   imports: [
     BrowserModule,
@@ -78,7 +80,8 @@ import { firebaseAuth } from "./app.firebase.config";
     EditPostItemPage,
     ScheduleTestPage,
     GenSchedulePage,
-    ForgetPage
+    ForgetPage,
+    EditPersonPage
   ],
   providers: [
     StatusBar,
