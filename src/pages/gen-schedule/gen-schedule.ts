@@ -52,11 +52,11 @@ export class GenSchedulePage {
   }
 
   private createSchedule() {
-    this.month = this.createMonth.toString();
+    this.month = this.convert(this.createMonth);
     let count = 0;
     for (let day = 1; day <= this.Month_day[this.createMonth-1]; day++) {
- 
-      this.scheItem.date = this.year + '-' + this.month + '-' + day;
+
+      this.scheItem.date = this.year + '-' + this.month + '-' + this.convert(day);
       for (let no = 0; no < 3; no++) {
 
         let shift1: string = "", shift2: string ="";
@@ -85,6 +85,10 @@ export class GenSchedulePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GenSchedulePage');
+  }
+
+  private convert(num){
+    return((num>=10)?num:'0'+num);
   }
 
 }
