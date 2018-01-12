@@ -8,8 +8,8 @@
 
 
 <ion-content padding>
-  <div id="chatMessages">
-    <div class="message" *ngFor="let message of messages">
+    <ion-list class="message" *ngFor="let message of messages; let last = last">
+
       <ion-item no-lines [hidden]="message.username == username ? true : false">
         <ion-avatar item-start>
           <img src={{message.image}} alt="Post profile pic">
@@ -24,9 +24,10 @@
 
         <p [class]="message.username == username ?
         'messageRight' : 'messageLeft'" style="font-size:12px;color:gray">{{message.time}}</p>
-
-    </div>
-  </div>
+        
+        {{last ? callFunction() : ''}}
+    </ion-list>
+  
 </ion-content>
 <ion-footer>
   <ion-toolbar>

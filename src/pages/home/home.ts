@@ -94,7 +94,7 @@ export class HomePage {
     this.fire.authState.take(1).subscribe(data => {
       if (data && data.email && data.uid) {
         this.toast.create({
-          message: `Welcom to C8C8, ${data.email}`,
+          message: `Welcome to C8C8, ` + globalUser.username,
           duration: 3000
         }).present();
 

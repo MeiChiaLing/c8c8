@@ -12,11 +12,11 @@
 <ion-content class="outer-content">
   <div padding-top text-center >
     <img src={{profileItem.image}} alt="avatar">
-    <h1>Name:&nbsp;&nbsp;&nbsp;{{profileItem.username}}</h1>
-    <h2>About:&nbsp;&nbsp;&nbsp;{{profileItem.about}}</h2>
-    <h2>WorkerID:&nbsp;&nbsp;&nbsp;{{profileItem.workerID}}</h2>  
-    <h2>Phone:&nbsp;&nbsp;&nbsp;{{profileItem.phone}}</h2>  
-    <h2>E-Mail:&nbsp;&nbsp;&nbsp;{{profileItem.email}}</h2> 
+    
+    <h2><ion-icon name="bookmark">&nbsp;&nbsp;&nbsp;{{profileItem.about}}</ion-icon></h2>
+    <h2><ion-icon name="finger-print">&nbsp;&nbsp;&nbsp;{{profileItem.workerID}}</ion-icon></h2>  
+    <h2><ion-icon name="call">&nbsp;&nbsp;&nbsp;{{profileItem.phone}}</ion-icon></h2>  
+    <h2><ion-icon name="mail">&nbsp;&nbsp;&nbsp;{{profileItem.email}}</ion-icon></h2> 
 
     <ion-list inset>
       <button block ion-button (click)="changePersonDetail(profileItem)">Change Person Information</button>

@@ -30,23 +30,8 @@
 
 <div padding>
   <button block ion-button (click)="signIn(user)">Sign In</button>
-  <button block ion-button (click)="addUser()">Register</button>
 </div>
 <div padding>
-  <button block ion-button (click)="loginWithFacebook()" *ngIf="!facebook.loggedin">Login With Facebook</button>
-  <ion-card *ngIf="facebook.loggedin">
-  <img src="{{facebook.profilePicture}}"/>
-  <ion-card-content>
-    <ion-card-title>
-      {{facebook.name}}
-      </ion-card-title>
-    <p style="text-align: center">
-      {{facebook.email}}.
-    </p>
-  </ion-card-content>
-</ion-card>
-  <button block ion-button (click)="logoutWithFacebook()" *ngIf="facebook.loggedin">Logout With Facebook</button>
-
   <ion-item no-lines>
     <ion-label class="ion-label" style="color:#777777" (click)="forget()">Forget password?</ion-label>
   </ion-item>
