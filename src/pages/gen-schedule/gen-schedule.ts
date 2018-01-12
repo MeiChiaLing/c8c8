@@ -56,7 +56,7 @@ export class GenSchedulePage {
     let count = 0;
     for (let day = 1; day <= this.Month_day[this.createMonth-1]; day++) {
  
-      this.scheItem.date = this.year + '/' + this.month + '/' + day;
+      this.scheItem.date = this.year + '-' + this.month + '-' + day;
       for (let no = 0; no < 3; no++) {
 
         let shift1: string = "", shift2: string ="";

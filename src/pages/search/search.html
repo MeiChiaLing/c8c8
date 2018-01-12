@@ -20,6 +20,16 @@
         <ion-item [class]="message.username == username ?
         'innerMessage messageRight' : 'innerMessage messageLeft'">
           <div class="message">{{message.message}}</div>
+
+          <ion-item [hidden]="message.message == '求換班!!!!' ? false : true">
+            <p>換班時段 : {{message.switch_time.date}} {{message.switch_time.time}}</p>
+            <p>欲換時段 : {{message.want_time.date}} {{message.want_time.time}}</p>
+            <button ion-button item-end [hidden]="message.username == username ? true : false || message.switch" (click)="switchSche(message)">
+              99他!!!
+            </button>
+            <p [hidden]="!message.switch" style="color:red">已換班!!</p>
+          </ion-item>
+
         </ion-item>
 
         <p [class]="message.username == username ?
@@ -32,10 +42,15 @@
 <ion-footer>
   <ion-toolbar>
     <div id="footer">
-      <div class="element">
-        <ion-input type="text" [(ngModel)]="message"></ion-input>
+      <ion-input type="text" [(ngModel)]="message"></ion-input>
+      <div class="element" item-end>
+        <button ion-button icon-only (click)="sendMessage()">
+          <ion-icon name="send"></ion-icon>
+        </button>
+        <button ion-button [hidden]="workerID.charAt(0) == 'B' ? true : false" (click)="goChangePage()">
+          求換班
+        </button>
       </div>
-      <div class="element"><button ion-button icon-only (click)="sendMessage()"><ion-icon name="send"></ion-icon></button></div>
-      </div>
+    </div>
   </ion-toolbar>
 </ion-footer>

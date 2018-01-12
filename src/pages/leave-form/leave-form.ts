@@ -26,6 +26,7 @@ export class LeaveFormPage {
       this.leaveItem.username = globalUser.username;
       this.leaveItem.workerID = globalUser.workerID;
       this.leaveItem.phone = globalUser.phone;
+      this.leaveItem.checkId ="notYet";
       this.leaveItemRef$ = this.db.list('leave-list');
   }
 
