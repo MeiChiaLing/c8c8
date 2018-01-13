@@ -5,7 +5,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let post of postItem">
+  <ion-card *ngFor="let post of postItem" (click)="userID == post.workerID ?
+  selectPostItem(post) : ''">
     <div [class]="post.workerID.charAt(0) == 'B' ?
     'boss' : 'worker'">
       <ion-card-header>
